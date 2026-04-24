@@ -1,9 +1,8 @@
 # Recommendation Engine
 class Customer:
-    """
-    Docstring for Customer class representing a banking customer.
-    """
-
+    # -----------------------------
+    # INITIALIZER
+    # -----------------------------
     def __init__(self, name, age, address, occupation, balance, account_type):
         self.name = name
         self.age = age
@@ -14,12 +13,13 @@ class Customer:
 
 
 class ProductRecommender:
-    """
-    Docstring for ProductRecommender
-    """
+    # -----------------------------
+    # NORMALIZATION TABLES Occupation Map
+    # -----------------------------
     OCCUPATION_MAP = {
         "techer": "teacher",
         "samll buisness": "small business",
+        "small buisness": "small business",
         "buisness": "business",
         "cheking": "checking",
         "saving": "saving",
@@ -28,9 +28,10 @@ class ProductRecommender:
     def __init__(self):
         pass
 
+    # -----------------------------
+    # PUBLIC METHOD
+    # -----------------------------
     def recommend(self, customer: Customer) -> str:
-        """Generate product recommendations based on customer profile."""
-
         occupation = self.normalize_occupation(customer.occupation)
         balance = customer.balance
         age = customer.age
@@ -53,8 +54,10 @@ class ProductRecommender:
 
         return "; ".join(recommendations)
 
+    # -----------------------------
+    # NORMALIZATION METHODS
+    # -----------------------------
     def normalize_occupation(self, occ: str) -> str:
-        """Normalize occupation using predefined mapping."""
         return self.OCCUPATION_MAP.get(occ, occ)
 
     def balance_based_rules(self, balance: float):

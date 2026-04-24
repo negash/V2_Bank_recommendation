@@ -1,187 +1,169 @@
-**Bank Recommendation AI Model**
+# **🏦** RAG-Based Bank Recommendation System (v2.5)
 
-An AI-powered banking product recommendation engine that combines Python, a rule-based recommender, and OpenAI’s function-calling capabilities to deliver personalized financial product suggestions based on customer profiles.
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?logo=fastapi)![OpenAI](https://img.shields.io/badge/OpenAI-GPT--API-black?logo=openai)![FAISS](https://img.shields.io/badge/FAISS-Vector%20DB-orange)![License](https://img.shields.io/badge/License-MIT-green)
 
-**Project Overview**
+An AI-powered **banking recommendation system** built using **Retrieval-Augmented Generation (RAG)**. \*\* \*\*
 
-This repository demonstrates a complete end-to-end recommendation system where a Large Language Model (LLM) intelligently interacts with backend logic to recommend appropriate bank products tailored to individual customer attributes such as age, balance, occupation, and account type.
+It combines semantic search with large language models to generate **data-grounded financial recommendations**.
 
-The system leverages:
+---
 
-- Python for business logic and tool implementation
-- OpenAI function calling to integrate LLM reasoning with structured backend functions
-- A rule-based recommendation model representing real-world product eligibility
+## 🚀 Why This Project?
 
-**Installation**
+Traditional rule-based systems struggle with personalization. \*\* \*\*
+This project demonstrates how to:
 
-To install all required dependencies for this project, run the following command:
+- Combine **vector similarity search (FAISS)**with LLMs\*\* \*\*
+- Generate **context-aware recommendations** \*\* \*\*
+- Build **explainable AI systems** using structured data \*\* \*\*
+
+---
+
+---
+
+🔥** Pro-level upgrade (recommended)**
+
+Add a clickable video fallback:
+
+## 🎥 Demo
+
+![Demo](assets/demo.gif)
+
+## **👉** [Watch full demo video](assets/demo.mov)
+
+## ✨ Features
+
+- 🔍 Semantic customer matching via embeddings \*\* \*\*
+- 🧠 RAG-based recommendation engine \*\* \*\*
+- ⚙️ LLM + tool-calling architecture \*\* \*\*
+- 📊 Data-grounded outputs (not hallucinated) \*\* \*\*
+- 🔒 Modular and production-ready design \*\* \*\*
+
+## **🏗️** Architecture
+
+![alt text](assets/Project_Architecture.png)
+
+**Flow:**
+
+1. Convert customer data → embeddings \*\* \*\*
+2. Retrieve similar customers (FAISS) \*\* \*\*
+3. Build context-aware prompt \*\* \*\*
+4. Generate recommendation using LLM \*\* \*\*
+5. Format structured response \*\* \*\*
+
+---
+
+## ⚙️ Quick Start
+
+```bash
+
+git clone https://github.com/negash/V2_Bank_recommendation
+
+cd bank-recommendation-rag
 
 pip install -r requirements.txt
 
-**Optional :**
+cp .env.example .env
 
-Create and activate a virtual environment to isolate project dependencies:
+Add your API key:
 
-**Create a virtual environment**
+OPENAI_API_KEY=your_key_here
+---
 
-python -m venv .venv
 
-**Activate the virtual environment**
+▶️** Run the API**
 
-source .venv/bin/activate
+uvicorn scripts.api:app --reload
 
-**Key Features**
+🧪** Example Usage**
 
-- **✔** **Customer model** with normalization and structured attributes
-- **✔** **Rule-based Product Recommender** (age, balance, occupation, account type)
-- **✔** **Function-calling tool (banker_recommendation_tool)** exposed to the LLM
-- **✔** **Automatic model → tool → model response pipeline**
-- **✔** **Customer dataset in JSON** (get_customers())
-- **✔** Export Customer Recommendation to CSV (Bonous Feature) \*\*to generates customer_recommendations.csv
-- **✔** Fully compatible with gpt-5.1 tool invocation format
+**Request**
 
-**Project Architecture**
-![alt text](assets/Project_Architecture.png)
+curl -X POST "http://127.0.0.1:8000/recommend" \
 
-**1. Customer Model**
+-H "Content-Type: application/json" \
 
-A Customer class that encapsulates core personal and financial information such as:
+-d '{"name": "Alice Brown"}'
 
-- Name
-- Age
-- Address
-- Occupation
-- Balance
-- Account type
-
-This standardized model enables consistent input handling and recommendation logic execution.
-
-**2. Product Recommendation Logic** The Product Recommender uses a set of hierarchical rules to match customers with the right financial products Logic is based on:
-
-**1. Balance Tiers** — Groups customers by account balance.
-
-**2. Occupation Overrides** — Occupation-specific rules that adjust product eligibility.
-
-**3. Age Categories** — Life-stage based product targeting.
-
-**4. Account Type** — Existing account influences upgrade or complementary product offers.
-
-Example output might include recommendations like:
-
-VIP Member; Silver CD; Investment Plan; Retirement Growth Plan; Overdraft Protection
-
-**Function:** banker_recommendation_tool
-
-A Python function exposed to the LLM via OpenAI’s function calling interface:
-
-def banker_recommendation_tool(name: str):
-
-```
-customers = get_customers()
-recommender = ProductRecommender()
-
-for c in customers:
-    if c["name"].lower() == name.lower():
-        customer_obj = Customer(
-            name=c["name"],
-            age=c.get("age"),
-            address=c.get("address"),
-            occupation=c.get("occupation"),
-            balance=c.get("balance"),
-            account_type=c.get("account_type")
-        )
-        return {
-            "name": c["name"],
-            "occupation": c["occupation"],
-            "balance": c["balance"],
-            "recommendation": recommender.recommend(customer_obj)
-        }
-return {"error": f"No customer found with name {name}"}
-```
-
-This tool accepts a customer name, retrieves the corresponding record, runs the recommendation logic, and returns a structured recommendation response.
-
-**LLM Interaction Pipeline**
-
-The system follows a **_Model → Tool → Model_** workflow:
-
-1. User issues a natural language request to generate a recommendation.
-2. The LLM identifies when a function call is needed and calls banker_recommendation_tool.
-3. The backend executes the function and returns results.
-4. The LLM produces the final formatted recommendation.
-
-**Example Usage**
-
-**User request:** "Generate a banking recommendation for Maria Lopez"
-
-**LLM triggers:** banker_recommendation_tool(name="Maria Lopez")
-
-messages = [
+**Response (Example)**
 
 {
 
+**  **"message": "Based on similar customers, Alice Brown may benefit from a high-yield savings account and investment portfolio optimization."
+
+}
+
+🧠** How It Works**
+
+* **Embedding Layer**
+
+  Converts customer attributes into vector representations
+* **Retriever (FAISS)**
+
+  Finds similar customers based on semantic similarity
+* **RAG Pipeline**
+
+  Injects retrieved data into LLM prompts
+* **LLM Generation**
+
+  Produces grounded, explainable recommendations
+
+📁** Project Structure**
+
+bank-recommendation-rag/
+
+│── embeddings/**        **# Embedding generation
+
+│── retriever/ **        **# Similarity search (FAISS)
+
+│── llm/ **              **# Prompt + generation pipeline
+
+│── tools/ **            **# Core RAG recommendation logic
+
+│── data/**              **# Customer dataset
+
+│── scripts/ **          **# API entrypoint
+
+│── config/**            **# Settings
+
+🧰** Tech Stack**
+
+* **Python**
+* **FastAPI**
+* **OpenAI GPT API**
+* **FAISS (Vector Database)**
+* **NumPy**
+* **RAG (Retrieval-Augmented Generation)**
+
+🧪** CI / Quality**
+
+This project includes a **GitHub Actions pipeline** that:
+
+* Installs dependencies
+* Runs lint checks
+* Validates core imports
+
+📌** Future Improvements**
+
+* ✅ Add unit + integration tests (pytest)
+* 📊 Retrieval evaluation (precision@k)
+* 🐳 Docker support
+* ☁️ Cloud deployment (AWS / GCP / Render)
+* 📈 Monitoring & logging
+
+🧾** Closing Notes**
+
+This project showcases a **real-world RAG application** in the banking domain, demonstrating how to:
+
+* Bridge structured data with LLM reasoning
+* Build reliable AI systems with reduced hallucination
+* Design scalable, modular AI architectures
+
+👤** Author**
+
+**Negash**
+
+📄** License**
+
+MIT License
 ```
- "role": "user",
-
- "content": "Generate a banking recommendation for Maria Lopez."
-```
-
-} ]
-
-response = client.chat.completions.create(
-
-model="openai:gpt-5.1",
-
-messages=messages,
-
-tools=TOOLS )
-
-msg = response.choices[0].message
-
-**Execute the tool if needed to validate**
-
-if msg.tool_calls:
-
-```
-tool_call = msg.tool_calls[0]
-
-args = json.loads(tool_call.function.arguments)
-
-tool_response = banker_recommendation_tool(\*\*args)
-
-print("TOOL RESPONSE:", tool_response)
-```
-
-**Response: { "name": "Maria Lopez", "occupation": "engineer", "balance": 185000, "recommendation": "VIP Member; Silver CD; Tech Professional Investment Plan; Retirement Growth Plan (RGP); Overdraft Protection Plan" }**
-
-**7. Export Customer Recommendation to CSV (Bonous Feature)**
-
-This document describes the bonus functionality for exporting customer product recommendations to a CSV file. The** \*\***Export to CSV\*\* feature provides a mechanism to generate a comprehensive spreadsheet containing customer details and their corresponding product recommendations. This is useful for auditing, analysis, or sharing the recommendations outside of the application.
-
-[![alt text](https://github.com/negash/Bank_recommendation_AI_Model/raw/main/assets/customer_recommend_csv.png)](https://github.com/negash/Bank_recommendation_AI_Model/blob/main/assets/customer_recommend_csv.png)
-
-**8. Customer Analytics Dashboard**
-
-The **Analytics Module** (analytics.py) processes customer demographic and financial data to generate a consolidated visual report. It bridges the gap between raw customer profiles and actionable business intelligence.
-
-**Key Feature:**
-
-- **Segment Insights** : A pie chart visualizing the distribution of customer occupations (e.g., Engineer, Student, Entrepreneur).
-- **Predictive Trends** : A scatter plot analyzing the correlation between Age and Account Balance to identify high-value demographics.
-- **Product Demand** : A ranked bar chart showing the most frequently recommended financial products based on the system's logic.
-- **Single-File Output** : Generates a high-resolution customer_analytics_dashboard.png for easy sharing and reporting.
-
-**Analytics output :**
-
-<img src="assets/customer_analytics_dashboard.png" style="width:60%; height:auto;" alt="Project Architecture" />
-
-**Technologies Used**
-
-- Python
-- OpenAI function calling API (GPT-5.1 compatible)
-- JSON data structures
-- Rule-based logic engine
-
-**Closing Notes**
-
-This project serves as a practical example of how to combine rule-based systems with LLM capabilities for real-world decision support systems in the banking domain. It highlights how structured backend tools can be integrated into an LLM-driven workflow for reliable, explainable outputs.

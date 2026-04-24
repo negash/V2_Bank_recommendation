@@ -31,7 +31,3 @@ if msg.tool_calls:
 
     tool_response = banker_recommendation_tool(**args)
     print("TOOL RESPONSE:", tool_response)
-
-
-# TOOL RESPONSE: {'name': 'Maria Lopez', 'occupation': 'Doctor', 'balance': 850000, 'recommendation': 'Diamond Wealth Member; High-Yield Certificate of Deposit (HCD); Wealth Management Portfolio; Medical Professionals Retirement Advantage Plan; Retirement Growth Plan (RGP); Overdraft Protection Plan; Cash-Back Debit Rewards'}
-# TOOL RESPONSE: {'name': 'John Smith', 'occupation': 'Engineer', 'balance': 1200000, 'recommendation': 'Elite Priority Banking; Ultra High-Yield Certificate of Deposit (UHCD); Private Wealth Advisory Services; Tech Professional Investment Plan; Retirement Growth Plan (RGP); Overdraft Protection Plan; Cash-Back Debit Rewards'}
