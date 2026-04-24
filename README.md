@@ -4,8 +4,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?logo=fastapi)![OpenAI](https://img.shields.io/badge/OpenAI-GPT--API-black?logo=openai)![FAISS](https://img.shields.io/badge/FAISS-Vector%20DB-orange)![License](https://img.shields.io/badge/License-MIT-green)
 
-An AI-powered **banking recommendation system** built using **Retrieval-Augmented Generation (RAG)**. 
-
+An AI-powered **Banking recommendation system** built using **Retrieval-Augmented Generation (RAG)**. 
 It combines semantic search with large language models to generate **data-grounded financial recommendations**.
 
 ---
