@@ -54,14 +54,20 @@ This project demonstrates how to:
 
 git clone https://github.com/negash/V2_Bank_recommendation
 
-cd bank-recommendation-rag
+cd V2_Bank_recommendation
 
 pip install -r requirements.txt
 
 Add your API key:
 
-OPENAI_API_KEY=your_key_here
+export OPENAI_API_KEY="your_api_key_here"
+Then run your app in the same terminal session.
 
+(optional)
+Make it permanent
+Add it to your shell config:
+
+~/.bashrc or ~/.zshrc
 ```
 ---
 
