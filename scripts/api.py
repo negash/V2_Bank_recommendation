@@ -100,39 +100,3 @@ def format_response(result) -> str:
         return "\n".join(lines)
 
     return str(result)
-
-# """API module for bank product recommendations using FastAPI."""
-# from fastapi import FastAPI
-# from pydantic import BaseModel
-# from src.bank_recommendation.embeddings.embedder import get_embedding
-# from src.bank_recommendation.embeddings.build_index import build_faiss_index
-# from src.bank_recommendation.tools.rag_banker_tool import rag_banker_recommendation_tool
-# from src.bank_recommendation.data.Customers_data import get_customers
-
-# app = FastAPI(title="Bank Recommendation API")
-
-
-# class Request(BaseModel):
-#     """Request model for recommendation API."""
-#     name: str
-
-# # @app.post("/recommend")
-# # def recommend(req: Request):
-# #     return {"test": "API works"}
-
-
-# # Initialize once at startup
-# customers = get_customers()
-# embeddings = [get_embedding(str(c)) for c in customers]
-# index = build_faiss_index(embeddings)
-
-
-# @app.post("/recommend")
-# def recommend(req: Request):
-#     """API endpoint to get product recommendations for a customer."""
-#     result = rag_banker_recommendation_tool(
-#         name=req.name,
-#         customers=customers,
-#         index=index
-#     )
-#     return result
