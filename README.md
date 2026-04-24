@@ -129,7 +129,7 @@ bank-recommendation-rag/
 * **NumPy**
 * **RAG (Retrieval-Augmented Generation)**
 
-## 🧪 CI/Quality
+## CI/Quality
 
 This project includes a **GitHub Actions pipeline** that:
 
@@ -137,10 +137,10 @@ This project includes a **GitHub Actions pipeline** that:
 * Runs lint checks
 * Validates core imports
 
-## 📌Future Improvements
+## Future Improvements
 
 *  Add unit + integration tests (pytest)
-*  Retrieval evaluation (precision@k)
+*  Retrieval evaluation 
 *  Docker support
 *  Cloud deployment (AWS / GCP / Render)
 *  Monitoring & logging
@@ -155,8 +155,8 @@ This project showcases a **real-world RAG application** in the banking domain, d
 
 ## 👤 Author
 
-**Negash**
+**Negash Bezabeh**
 
 ## 📄 License
-MIT License
+This project is licensed under the [MIT License](LICENSE).
 
