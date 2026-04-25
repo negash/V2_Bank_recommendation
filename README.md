@@ -160,9 +160,8 @@ This project showcases a **real-world RAG application** in the banking domain, d
 * Design scalable, modular AI architectures
 
 ## 👤 Author
-
 **Negash Bezabeh**
 
 ## 📄 License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the LICENSE file for details.
 
