@@ -158,6 +158,8 @@ This project showcases a **real-world RAG application** in the banking domain, d
 * Bridge structured data with LLM reasoning
 * Build reliable AI systems with reduced hallucination
 * Design scalable, modular AI architectures
+  
+Currently, the rules specify 2–3 distinct recommendations. The number of recommendations can be configured in the RAG pipeline under the llm 
 
 ## 👤 Author
 **Negash Bezabeh**
