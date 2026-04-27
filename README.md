@@ -73,7 +73,7 @@ Add it to your shell config:
 
 ## ▶️ Run the API
 
-uvicorn scripts.api:app --reload
+PYTHONPATH=src uvicorn scripts.api:app --reload
 
 ## 🧪Example Usage
 
