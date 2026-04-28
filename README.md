@@ -162,7 +162,7 @@ This project showcases a **real-world RAG application** in the banking domain, d
 Currently, the rules specify 2–3 distinct recommendations. The number of recommendations can be configured in the RAG pipeline under the llm 
 
 ## 👤 Author
-**Negash Bezabeh**
+**Negash B.**
 
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
