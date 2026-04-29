@@ -4,19 +4,19 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?logo=fastapi)![OpenAI](https://img.shields.io/badge/OpenAI-GPT--API-black?logo=openai)![FAISS](https://img.shields.io/badge/FAISS-Vector%20DB-orange)![License](https://img.shields.io/badge/License-MIT-green)
 
-An AI-powered **Banking recommendation system** built using **Retrieval-Augmented Generation (RAG)**. 
+An AI-powered **Banking recommendation system** built using **Retrieval-Augmented Generation (RAG)**.
 It combines semantic search with large language models to generate **data-grounded financial recommendations**.
 
 ---
 
 ## 🚀 Why This Project?
 
-Traditional rule-based systems struggle with personalization. 
+Traditional rule-based systems struggle with personalization.
 This project demonstrates how to:
 
 - Combine **vector similarity search (FAISS)** with LLMs
-- Generate **context-aware recommendations** 
-- Build **explainable AI systems** using structured data 
+- Generate **context-aware recommendations**
+- Build **explainable AI systems** using structured data
 
 ---
 
@@ -28,11 +28,11 @@ This project demonstrates how to:
 
 ## ✨ Features
 
-- 🔍 Semantic customer matching via embeddings 
-- 🧠 RAG-based recommendation engine 
-- ⚙️ LLM + tool-calling architecture 
-- 📊 Data-grounded outputs (not hallucinated) 
-- 🔒 Modular and production-ready design 
+- 🔍 Semantic customer matching via embeddings
+- 🧠 RAG-based recommendation engine
+- ⚙️ LLM + tool-calling architecture
+- 📊 Data-grounded outputs (not hallucinated)
+- 🔒 Modular and production-ready design
 
 ## **🏗️** Architecture
 
@@ -40,11 +40,11 @@ This project demonstrates how to:
 
 **Flow:**
 
-1. Convert customer data → embeddings 
-2. Retrieve similar customers (FAISS) 
-3. Build context-aware prompt 
+1. Convert customer data → embeddings
+2. Retrieve similar customers (FAISS)
+3. Build context-aware prompt
 4. Generate recommendation using LLM
-5. Format structured response 
+5. Format structured response
 
 ---
 
@@ -69,6 +69,7 @@ Add it to your shell config:
 
 ~/.bashrc or ~/.zshrc
 ```
+
 ---
 
 ## ▶️ Run the API
@@ -89,81 +90,82 @@ curl -X POST "http://127.0.0.1:8000/recommend" \
 
 {
 
-   "message": "Based on similar customers, Alice Brown may benefit from a high-yield savings account and investment portfolio optimization."
+"message": "Based on similar customers, Alice Brown may benefit from a high-yield savings account and investment portfolio optimization."
 
 }
 
 ## 🧠 How It Works
 
- **Embedding Layer**
+**Embedding Layer**
 
-  Converts customer attributes into vector representations
- **Retriever (FAISS)**
+Converts customer attributes into vector representations
+**Retriever (FAISS)**
 
-  Finds similar customers based on semantic similarity
- **RAG Pipeline**
+Finds similar customers based on semantic similarity
+**RAG Pipeline**
 
-  Injects retrieved data into LLM prompts
- **LLM Generation**
+Injects retrieved data into LLM prompts
+**LLM Generation**
 
-  Produces grounded, explainable recommendations
+Produces grounded, explainable recommendations
 
 ## 📁 Project Structure
 
 bank-recommendation-rag/
 
-│── embeddings/         Embedding generation
+│── embeddings/ Embedding generation
 
-│── retriever/          Similarity search (FAISS)
+│── retriever/ Similarity search (FAISS)
 
-│── llm/                Prompt + generation pipeline
+│── llm/ Prompt + generation pipeline
 
-│── tools/              Core RAG recommendation logic
+│── tools/ Core RAG recommendation logic
 
-│── data/               Customer dataset
+│── data/ Customer dataset
 
-│── scripts/            API entrypoint
+│── scripts/ API entrypoint
 
-│── config/             Settings
+│── config/ Settings
 
 ## 🧰 Tech Stack
 
-* **Python**
-* **FastAPI**
-* **OpenAI GPT API**
-* **FAISS (Vector Database)**
-* **NumPy**
-* **RAG (Retrieval-Augmented Generation)**
+- **Python**
+- **FastAPI**
+- **OpenAI GPT API**
+- **FAISS (Vector Database)**
+- **NumPy**
+- **RAG (Retrieval-Augmented Generation)**
 
 ## CI/Quality
 
 This project includes a **GitHub Actions pipeline** that:
 
-* Installs dependencies
-* Runs lint checks
-* Validates core imports
+- Installs dependencies
+- Runs lint checks
+- Validates core imports
 
 ## Future Improvements
 
-*  Add unit + integration tests (pytest)
-*  Retrieval evaluation 
-*  Docker support
-*  Cloud deployment (AWS / GCP / Render)
-*  Monitoring & logging
+- Add unit + integration tests (pytest)
+- Retrieval evaluation
+- Docker support
+- Cloud deployment (AWS / GCP / Render)
+- Monitoring & logging
 
 ## 🧾 Closing Notes
 
 This project showcases a **real-world RAG application** in the banking domain, demonstrating how to:
 
-* Bridge structured data with LLM reasoning
-* Build reliable AI systems with reduced hallucination
-* Design scalable, modular AI architectures
-  
-Currently, the rules specify 2–3 distinct recommendations. The number of recommendations can be configured in the RAG pipeline under the llm 
+- Bridge structured data with LLM reasoning
+- Build reliable AI systems with reduced hallucination
+- Design scalable, modular AI architectures
+
+Currently, the rules specify 2–3 distinct recommendations. The number of recommendations can be configured in the RAG pipeline under the llm
 
 ## 👤 Author
+
 **Negash B.**
 
 ## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
+This project is licensed under [MIT License](LICENSE.md)
