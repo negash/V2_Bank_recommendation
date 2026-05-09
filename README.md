@@ -36,7 +36,7 @@ This project demonstrates how to:
 
 ## **🏗️** Architecture
 
-![alt text](assets/Project_Architecture.png)
+![alt text](assets/Project_Architecture2.png)
 
 **Flow:**
 
