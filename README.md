@@ -22,7 +22,7 @@ This project demonstrates how to:
 
 ## 🎥 Demo
 
-<img src="assets/demo.gif" alt="Demo" width="400">
+<img src="assets/demo.gif" alt="Demo" width="500">
 
 
 ## **👉** [Watch full demo video](assets/demo.gif)
