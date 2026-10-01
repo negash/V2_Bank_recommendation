@@ -22,7 +22,8 @@ This project demonstrates how to:
 
 ## 🎥 Demo
 
-![Demo](assets/demo.gif)
+<img src="assets/demo.gif" alt="Demo" width="400">
+
 
 ## **👉** [Watch full demo video](assets/demo.gif)
 
